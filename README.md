@@ -2,6 +2,8 @@
 
 ### Latest keeps us up to speed by querying rubygems.org for a gem's most recent version number. Yep, that's all it does.
 
+Basically I was tired of visiting `https://rubygems.org/gems/whatever-gem` to find out a gem's most recent version number.
+
 
 ------------------------------------------------------------------------------
 Usage
