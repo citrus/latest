@@ -1,0 +1,20 @@
+#! /usr/bin/env ruby
+# encoding: UTF-8
+
+$:.push File.expand_path("../../lib", __FILE__)
+
+require "latest"
+
+if ARGV.first =~ /^-(v|-version)$/
+  puts "Latest v" + Latest::VERSION
+else
+  ARGV.each do |name|  
+    print name + " "
+    begin
+      puts Latest.version(name)
+    rescue Latest::GemNotFoundError => e
+      print "<- "
+      puts e.message
+    end
+  end
+end
