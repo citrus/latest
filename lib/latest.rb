@@ -5,9 +5,9 @@ module Latest
   
   class GemNotFoundError < StandardError; end
   
-  def self.version(name)
+  def self.lookup(name)
     gem = Gem.new(name)
-    gem.attributes["version"]
+    gem
   end
   
 end

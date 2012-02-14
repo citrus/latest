@@ -22,6 +22,12 @@ latest rails spree haml
 # haml 3.1.4
 ```
 
+latest rails spree --pre haml
+# rails 3.2.1
+# spree --pre 1.0.0.rc4
+# haml 3.1.4
+```
+
 
 ------------------------------------------------------------------------------
 Installation
