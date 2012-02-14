@@ -20,12 +20,18 @@ latest rails spree haml
 # rails 3.2.1
 # spree 1.0.0
 # haml 3.1.4
-```
 
 latest rails spree --pre haml
 # rails 3.2.1
 # spree --pre 1.0.0.rc4
 # haml 3.1.4
+```
+
+You can print latest's version like so:
+
+```bash
+latest -v
+# Latest v0.2.0
 ```
 
 
