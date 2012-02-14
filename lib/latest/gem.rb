@@ -1,3 +1,7 @@
+require "uri"
+require "net/https"
+require "json"
+
 module Latest
   class Gem
     
@@ -8,7 +12,7 @@ module Latest
       if @attributes.nil?
         raise ::Latest::GemNotFoundError, "`#{name}` could not be found on rubygems.org!"
       end
-      super
+      self
     end
     
   private

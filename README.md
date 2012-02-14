@@ -43,8 +43,15 @@ Testing
 Testing is done with minitest. Run the tests with:
 
 ```bash
-rake
+bundle exec rake
 ```
+
+
+------------------------------------------------------------------------------
+Requirements
+------------------------------------------------------------------------------
+
+Other than rake and bundler for development, Latest has zero gem dependencies! All it requires is Ruby >= 1.9.2.
 
 
 ------------------------------------------------------------------------------

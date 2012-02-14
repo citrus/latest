@@ -1,7 +1,3 @@
-require "uri"
-require "net/https"
-require "json"
-
 require "latest/version"
 require "latest/gem"
 
