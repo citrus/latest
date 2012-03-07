@@ -19,7 +19,7 @@ else
         print "--pre "
       end
       puts "#{gem.version} (#{gem.downloads} downloads)"    
-    rescue StandardError => e
+    rescue => e
       print "[Error] "
       puts e.message
     end
