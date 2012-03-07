@@ -1,9 +1,5 @@
-require "simplecov"
-SimpleCov.start
-
 require "latest"
 require "minitest/autorun"
-
 
 FAKE_VERSIONS = [
   {"authors"=>"Bogus", "built_at"=>"2011-10-22T00:00:00Z", "description"=>"Bogus...", "downloads_count"=>10000, "number"=>"1.0.1",     "summary"=>"Bogus", "platform"=>"ruby", "prerelease"=>false},
