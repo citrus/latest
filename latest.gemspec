@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
   s.homepage    = "https://github.com/citrus/latest"
-  s.summary     = %q{Latest keeps us up to speed by querying rubygems.org for a gem's most recent version number. Yep, that's all it does.}
+  s.summary     = %q{Latest queries rubygems.org for the latest version of a gem.}
   s.description = %q{Latest keeps us up to speed by querying rubygems.org for a gem's most recent version number. Yep, that's all it does.}
 
   s.rubyforge_project = "latest"
