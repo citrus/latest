@@ -23,10 +23,18 @@ describe "Latest" do
     assert File.executable?(BIN)
   end
   
+  it "should return usage string" do
+    Latest.usage.must_equal "Usage: latest [GEM [--pre]] [GEM2 [--pre]] etc"
+  end
+  
   describe "#latest" do
     
     def cmd(params)
       `#{BIN} #{params}`.strip
+    end
+    
+    it "should return usage when no arguments are given" do
+      cmd("").must_equal Latest.usage
     end
     
     it "should return version with -v or --version" do
@@ -52,6 +60,16 @@ describe "Latest" do
       assert_version_match "rake",    out[0], true
       assert_version_match "shoulda", out[1], true
       assert_version_match "latest",  out[2]
+    end
+    
+    it "should rescue GemNotFoundError and print it's error message" do
+      out = cmd("omg-non-existant-gem-2")
+      out.must_equal "omg-non-existant-gem-2 [Error] `omg-non-existant-gem-2` could not be found on rubygems.org"
+    end
+    
+    it "should rescue standard error and print it's error message" do
+      out = cmd("^")
+      out.must_equal "^ [Error] bad URI(is not URI?): https://rubygems.org/api/v1/versions/^.json"
     end
   
   end
