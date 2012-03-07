@@ -31,7 +31,7 @@ You can print latest's version like so:
 
 ```bash
 latest -v
-# Latest v0.3.0
+# Latest v0.4.0
 ```
 
 

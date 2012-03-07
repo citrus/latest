@@ -18,7 +18,7 @@ else
         gem.pre = true
         print "--pre "
       end
-      puts "#{gem.version} (#{gem.downloads} downloads)"    
+      puts "#{gem.version} (#{gem.downloads} download#{'s' unless gem.downloads == 1})"
     rescue => e
       print "[Error] "
       puts e.message

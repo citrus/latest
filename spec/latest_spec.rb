@@ -7,7 +7,7 @@ describe "Latest" do
   
   STABLE_VERSION_REGEX = /\d+(\.\d+)*/                        # 11.2.123
   PRE_VERSION_REGEX    = /--pre \d+(\.\d+)*(.[a-z\.?\d]+)+/i  # 0.1.23.beta.1
-  DOWNLOADS_REGEX      = /\(\d+ downloads\)/                  # (10 downloads)
+  DOWNLOADS_REGEX      = /\(\d+ downloads?\)/                 # (10 downloads)
 
   def assert_version_match(name, string, prerelease=false)
     regex = Regexp.new("#{name} #{prerelease ? PRE_VERSION_REGEX : STABLE_VERSION_REGEX} #{DOWNLOADS_REGEX}")
