@@ -4,9 +4,10 @@ require "minitest/autorun"
 describe "Latest" do
 
   BIN = File.expand_path("../../bin/latest", __FILE__)
+  
   STABLE_VERSION_REGEX = /\d+(\.\d+)*/                        # 11.2.123
   PRE_VERSION_REGEX    = /--pre \d+(\.\d+)*(.[a-z\.?\d]+)+/i  # 0.1.23.beta.1
-  DOWNLOADS_REGEX      = /\(\d+ downloads\)/
+  DOWNLOADS_REGEX      = /\(\d+ downloads\)/                  # (10 downloads)
 
   def assert_version_match(name, string, prerelease=false)
     regex = Regexp.new("#{name} #{prerelease ? PRE_VERSION_REGEX : STABLE_VERSION_REGEX} #{DOWNLOADS_REGEX}")
@@ -52,22 +53,6 @@ describe "Latest" do
       assert_version_match "shoulda", out[1], true
       assert_version_match "latest",  out[2]
     end
-  
-    
-    
-    #it "should fetch gem and print latest version" do
-    #  cmd("rake").must_match /rake #{STABLE_VERSION_REGEX} \(\d+ downloads\)/
-    #end
-    #
-    #it "should fetch gem and print latest version" do
-    #  cmd("rake --pre").must_match /rake \d\.\d.\d.beta.\d \(\d+ downloads\)/
-    #end
-    #
-    #it "should fetch gem and print latest version" do
-    #  lines = cmd("rake --pre spree").split("\n")
-    #  lines[0].must_match Regexp.new("rake #{PRE_VERSION_REGEX} \(\d+ downloads\)")
-    #  lines[1].must_match Regexp.new("spree #{STABLE_VERSION_REGEX} \(\d+ downloads\)")
-    #end
   
   end
   

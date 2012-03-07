@@ -1,5 +1,9 @@
+require "simplecov"
+SimpleCov.start
+
 require "latest"
 require "minitest/autorun"
+
 
 FAKE_VERSIONS = [
   {"authors"=>"Bogus", "built_at"=>"2011-10-22T00:00:00Z", "description"=>"Bogus...", "downloads_count"=>10000, "number"=>"1.0.1",     "summary"=>"Bogus", "platform"=>"ruby", "prerelease"=>false},
@@ -11,39 +15,6 @@ FAKE_VERSIONS = [
 
 describe Latest::Gem do
 
-  it "has a name attribute" do
-    Latest::Gem.instance_methods.must_include :name
-  end
-  
-  it "has a pre attribute accessor" do
-    Latest::Gem.instance_methods.must_include :pre
-    Latest::Gem.instance_methods.must_include :pre=
-  end
-  
-  it "has a response attribute" do
-    Latest::Gem.instance_methods.must_include :response
-  end
-  
-  it "has a versions attribute" do
-    Latest::Gem.instance_methods.must_include :versions
-  end
-  
-  it "has a downloads attribute" do
-    Latest::Gem.instance_methods.must_include :downloads
-  end
-  
-  it "has a NameParseError error class" do
-    Latest::Gem::NameParseError.ancestors.must_include StandardError
-  end
-  
-  it "has a GemNotFoundError class" do
-    Latest::Gem::GemNotFoundError.ancestors.must_include StandardError
-  end
-  
-  it "has a RequestError class" do
-    Latest::Gem::RequestError.ancestors.must_include StandardError
-  end
-  
   describe "#initialize" do
   
     it "should initialize with a name" do
@@ -138,6 +109,12 @@ describe Latest::Gem do
     it "should set the total number of downloads when a version is found" do
       @gem.version.must_equal "1.0.1"
       @gem.downloads.must_equal 10000
+    end
+    
+    it "should find latest version, change to prerelease, then find the latest version again" do
+      @gem.version.must_equal "1.0.1"
+      @gem.pre = true
+      @gem.version.must_equal "1.0.0.rc1"    
     end
     
   end
